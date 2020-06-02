@@ -1,8 +1,8 @@
 {
   "name": "Random LemonAmiga Game Page",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "manifest_version": 2,
-  "description": "Adds a button that sends the user to a random LemonAmiga.com game page",
+  "description": "Adds a button that sends the user to a random LemonAmiga.com or Lemon64.com game page",
   "homepage_url": "http://billpearmain.co.uk",
   "icons": {
     "16": "icons/icon16.png",
@@ -11,15 +11,18 @@
   },
   "default_locale": "en",
   "permissions": [
-    "http://www.lemonamiga.com/*"
+    "http://www.lemonamiga.com/*",
+    "https://www.lemon64.com/*"
   ],
   "web_accessible_resources": [
-    "images/signz_random.gif"
+    "images/signz_random.gif",
+    "images/c64_random.gif"
   ],
   "content_scripts": [    
     {
       "matches": [
-        "http://www.lemonamiga.com/*"
+        "http://www.lemonamiga.com/*",
+        "https://www.lemon64.com/*"
       ],
       "js": [
         "src/inject/inject.js"
