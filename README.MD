@@ -5,3 +5,5 @@ This is a chrome extension that places a button in the menu. Clicking the button
 This extension is not endorsed by LemonAmiga.com.
 
 There are certain actions you can complete on the site which fail to trigger the button to appear. Such as changing the landscape. A refresh will fix that.
+
+Version 2 adds support for Lemon64.com
