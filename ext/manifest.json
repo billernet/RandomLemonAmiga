@@ -24,8 +24,12 @@
         "http://www.lemonamiga.com/*",
         "https://www.lemon64.com/*"
       ],
+      "all_frames": true,
       "js": [
-        "src/inject/inject.js"
+        "js/RandomLemon.js"
+      ],
+      "css": [
+        "css/RandomLemon.css"
       ]
     }
   ]

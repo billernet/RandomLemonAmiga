@@ -1,4 +1,4 @@
-# Random LemonAmiga.com game page.
+# Random LemonAmiga.com game page
 
 This is a chrome extension that places a button in the menu. Clicking the button will send the user to a random game on the site.
 
