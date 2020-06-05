@@ -1,6 +1,12 @@
 # Random LemonAmiga.com game page
 
-This is a chrome extension that places a button in the menu. Clicking the button will send the user to a random game on the site.
+This is a chrome extension that places a button in the menu. Clicking the button will send the user to a random game on the site. 
+
+![Random button location](images/highlighted.png)
+
+It will also change how images are scaled so when the 2x viewer is open it will look more crisp.
+
+![Crisper scaling](images/blurfix.png)
 
 This extension is not endorsed by LemonAmiga.com.
 
