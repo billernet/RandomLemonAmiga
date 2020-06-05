@@ -2,11 +2,11 @@
 
 This is a chrome extension that places a button in the menu. Clicking the button will send the user to a random game on the site. 
 
-![Random button location](images/higlighted.png)
+![Random button location](https://raw.githubusercontent.com/BillerNET/RandomLemonAmiga/master/Images/higlighted.png)
 
 It will also change how images are scaled so when the 2x viewer is open it will look more crisp.
 
-![Crisper scaling](images/blurfix.png)
+![Crisper scaling](https://raw.githubusercontent.com/BillerNET/RandomLemonAmiga/master/Images/blurfix.png)
 
 This extension is not endorsed by LemonAmiga.com.
 
