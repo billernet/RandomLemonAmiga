@@ -2,7 +2,7 @@
 
 This is a chrome extension that places a button in the menu. Clicking the button will send the user to a random game on the site. 
 
-![Random button location](images/highlighted.png)
+![Random button location](images/higlighted.png)
 
 It will also change how images are scaled so when the 2x viewer is open it will look more crisp.
 
