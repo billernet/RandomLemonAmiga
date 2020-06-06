@@ -66,7 +66,7 @@ class RandomAmiga {
 	}
 
 	goToRandomPage() {
-		let maincontent = document.querySelector("[name='maincontent'");
+		let maincontent = document.querySelector("[name='maincontent']");
 
 		let generatedId = Math.floor(Math.random() * this.gameCount) + 1;
 		let newUrl = "/games/details.php?id=" + generatedId;
@@ -96,6 +96,7 @@ class RandomC64 {
 			});
 
 			newButton.setAttribute("src", chrome.extension.getURL("images/c64_random.gif"));
+			newButton.setAttribute("id", "random");
 			newButton.style.height = "18px";
 			newButton.style.width = "59px";
 			newButton.style.top = "41px";
