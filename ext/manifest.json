@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "manifest_version": 2,
   "description": "Adds a button that sends the user to a random LemonAmiga.com or Lemon64.com game page. Fixes blurry scaled images.",
-  "homepage_url": "http://billpearmain.co.uk",
+  "homepage_url": "https://github.com/BillerNET/RandomLemonAmiga",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
