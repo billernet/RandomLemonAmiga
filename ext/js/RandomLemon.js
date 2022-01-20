@@ -38,9 +38,10 @@ class RandomAmiga {
 	}
 
 	addButton() {
-		let frame = document.querySelector("frame[name='menu']");
-		if (frame != null) {
-			let menuItem = frame.contentDocument.querySelector("img[src='images/menu/signz_links.gif']");
+		let navigation = document.querySelector(".top-navigation");
+		if (navigation != null) {
+			let menuItem = navigation.querySelector("img[src='/images/navigation/signs/links.gif']");
+			console.log(menuItem);
 			if (menuItem != null) {
 				menuItem = menuItem.closest("td");
 
@@ -66,12 +67,12 @@ class RandomAmiga {
 	}
 
 	goToRandomPage() {
-		let maincontent = document.querySelector("[name='maincontent']");
+		//let maincontent = document.querySelector("[name='maincontent']");
 
 		let generatedId = Math.floor(Math.random() * this.gameCount) + 1;
 		let newUrl = "/games/details.php?id=" + generatedId;
 
-		maincontent.setAttribute("src", newUrl);
+		document.location.href = newUrl;
 	}
 }
 
