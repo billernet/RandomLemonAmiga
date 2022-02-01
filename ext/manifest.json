@@ -2,7 +2,7 @@
     "name": "RandomLemon",
     "version": "2.2.0",
     "manifest_version": 2,
-    "description": "Adds a button that sends the user to a random LemonAmiga.com or Lemon64.com game page. Fixes blurry scaled images.",
+    "description": "Adds a button that sends the user to a random LemonAmiga.com or Lemon64.com game page.",
     "homepage_url": "https://github.com/BillerNET/RandomLemonAmiga",
     "options_page": "html/options.html",
     "browser_action": {
@@ -37,7 +37,7 @@
         "all_frames": true,
         "js": [
             "js/RandomLemon.js",
-            "js/Options.js"
+            "js/options.js"
 
         ],
         "css": [

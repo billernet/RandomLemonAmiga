@@ -15,4 +15,4 @@ The options screen allows user update of the total number of games when they are
 * 1.0. Initial version that adds the Random button.
 * 2.0. Rewrite to be more flexible. Added support for Lemon64.com.
 * 2.1. Updated to work with the slick new markup.
-* 2.2. Removed the pixelated image scaling as this is now built into LemonAmiga.com. Added the options screen. textual content is now in the messages.json translated content is supported if it ever gets added.
+* 2.2. Removed the pixelated image scaling as this is now built into LemonAmiga.com. Added the options screen. textual content is now in the messages.json. translated content is supported if it ever gets added.
