@@ -48,7 +48,6 @@ class RandomAmiga {
         chrome.storage.local.get("lemonamigaTotal", function(value) {
 
             if (!value || !value.lemonamigaTotal) {
-
                 value = { lemonamigaTotal: 4700 };
                 chrome.storage.local.set(value);
             }
@@ -102,7 +101,17 @@ class RandomAmiga {
 class RandomC64 {
 
     constructor() {
-        this.gameCount = 4197;
+        var self = this;
+        this.gameCount = 0;
+
+        chrome.storage.local.get("lemon64Total", function(value) {
+
+            if (!value || !value.lemon64Total) {
+                value = { lemon64Total: 4197 };
+                chrome.storage.local.set(value);
+            }
+            self.gameCount = value.lemon64Total;
+        });
     }
 
     addButton() {

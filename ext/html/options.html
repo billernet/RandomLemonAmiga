@@ -3,40 +3,40 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>RandomLemon Options</title>
+    <title data-message="OptionsTitle">RandomLemon Options</title>
     <link rel="stylesheet" href="/css/randomlemon.css" />
 </head>
 
 <body id="randomLemonOptions">
 
     <header>
-        <button type="button" id="close" title="Close RandomLemon Options">
+        <button type="button" id="close" data-messagetitle="OptionsSaveButtonTitle" title="Close RandomLemon Options">
             <div id="close-icon"></div>
         </button>
         <div id="header-text">
-            <h1>RandomLemon Options</h1>
+            <h1 data-message="OptionsTitle">RandomLemon Options</h1>
         </div>
     </header>
 
     <div class="form-body">
-        <p>
+        <p data-message="OptionsInstructions">
             Enter the total number of games available on LemonAmiga.com and Lemon64.com.
         </p>
 
         <div class="options">
             <div class="option">
-                <label for=lemonamiga-total>LemonAmiga:</label>
+                <label for=lemonamiga-total data-message="OptionsLemonAmigaLabel">LemonAmiga:</label>
                 <input id="lemonamiga-total" name="lemonamiga-total" type="number" step="1" min="1" max="65535" />
             </div>
             <div class="option">
-                <label for=lemon64-total>Lemon64:</label>
+                <label for=lemon64-total data-message="OptionsLemon64Label">Lemon64:</label>
                 <input id="lemon64-total" name="lemon64-total" type="number" step="1" min="1" max="65535" />
             </div>
         </div>
 
         <div class="buttons-row">
-            <button type="button" id="save" title="Save the options.">Save</button>
-            <button type="button" id="cancel" title="Exit without saving.">Quit</button>
+            <button type="button" id="save" data-message="OptionsSaveButton" data-messagetitle="OptionsSaveButtonTitle" title="Save the options.">Save</button>
+            <button type="button" id="cancel" data-message="OptionsCancelButton" data-messagetitle="OptionsCancelButtonTitle" title="Exit without saving.">Quit</button>
         </div>
         <div>
             <p id="status-message"></p>

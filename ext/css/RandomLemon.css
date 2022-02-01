@@ -40,6 +40,10 @@ h1 {
     font-weight: 400;
 }
 
+p {
+    margin: 1em;
+}
+
 #close {
     display: flex;
     height: 19px;

@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
             let min = parseInt(inputs[i].getAttribute("min"));
             let max = parseInt(inputs[i].getAttribute("max"));
             let value = parseInt(inputs[i].value);
-            if (value < min || value > max) {
+            if (!value || value < min || value > max) {
                 isValid = false;
                 inputs[i].classList.add("invalid");
             }
@@ -64,11 +64,21 @@ document.addEventListener("DOMContentLoaded", function() {
             chrome.storage.local.set({ lemonamigaTotal: parseInt(newLemonAmigaValue) });
             chrome.storage.local.set({ lemon64Total: parseInt(newLemon64Value) });
             statusElement.classList.remove("invalid");
-            statusElement.innerText = "The new values have been saved.";
+            statusElement.innerText = chrome.i18n.getMessage("OptionsSaveSuccess");
         } else {
 
             statusElement.classList.add("invalid");
-            statusElement.innerText = "Please enter a valid number.";
+            statusElement.innerText = chrome.i18n.getMessage("OptionsSaveInvalid");;
         }
+    });
+
+    //internationalisation
+    document.querySelectorAll('[data-message]').forEach(element => {
+        element.innerText = chrome.i18n.getMessage(element.dataset.message);
+    });
+
+    document.querySelectorAll('[data-messagetitle]').forEach(element => {
+        element.setAttribute("title", chrome.i18n.getMessage(element.dataset.messagetitle));
     })
+
 });

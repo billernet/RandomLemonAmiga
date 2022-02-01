@@ -1,6 +1,6 @@
 {
     "name": "RandomLemon",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "manifest_version": 2,
     "description": "Adds a button that sends the user to a random LemonAmiga.com or Lemon64.com game page. Fixes blurry scaled images.",
     "homepage_url": "https://github.com/BillerNET/RandomLemonAmiga",
