@@ -3,123 +3,141 @@
 //Support both Chrome and Firefox
 var thisBrowser;
 if (typeof browser !== "undefined") {
-	thisBrowser = browser;
+    thisBrowser = browser;
 } else if (typeof chrome !== "undefined") {
-	thisBrowser = chrome;
+    thisBrowser = chrome;
 }
 
-thisBrowser.runtime.sendMessage({}, function (response) {
-	var readyStateCheckInterval = setInterval(function () {
-		if (document.readyState === "complete") {
-			clearInterval(readyStateCheckInterval);
+thisBrowser.runtime.sendMessage({}, function(response) {
+    var readyStateCheckInterval = setInterval(function() {
+        if (document.readyState === "complete") {
+            clearInterval(readyStateCheckInterval);
 
-			randomLemon = identifyWebsite();
-			randomLemon.addButton();
+            randomLemon = identifyWebsite();
+            randomLemon.addButton();
 
-			document.addEventListener("keyup", function (event) {
-				if (event.altKey && event.ctrlKey && event.which == 82) {
-					goToRandomPage();
-				}
-			});
+            document.addEventListener("keyup", function(event) {
+                if (event.altKey && event.ctrlKey && event.which == 82) {
+                    goToRandomPage();
+                }
+            });
 
-		}
-	}, 10);
+        }
+    }, 10);
 });
 
 var randomLemon;
 
 const lemonAmiga = "www.lemonamiga.com";
 
-const identifyWebsite = function () {
-	if (document.location.host.toLowerCase() == lemonAmiga) {
-		return new RandomAmiga();
-	} else {
-		return new RandomC64();
-	}
+const identifyWebsite = function() {
+    if (document.location.host.toLowerCase() == lemonAmiga) {
+        return new RandomAmiga();
+    } else {
+        return new RandomC64();
+    }
 }
 
 class RandomAmiga {
 
-	constructor() {
-		this.gameCount = 4700;
-	}
+    constructor() {
 
-	addButton() {
-		let navigation = document.querySelector(".top-navigation");
-		if (navigation != null) {
-			let menuItem = navigation.querySelector("img[src='/images/navigation/signs/links.gif']");
+        var self = this;
+        this.gameCount = 0;
 
-			if (menuItem != null) {
-				menuItem = menuItem.closest("td");
+        chrome.storage.local.get("lemonamigaTotal", function(value) {
 
-				let newMenuItem = menuItem.cloneNode(true);
-				newMenuItem.setAttribute("id", "random");
-				let newImage = newMenuItem.querySelector("img")
-				let link = newMenuItem.querySelector("a");
+            if (!value || !value.lemonamigaTotal) {
 
-				newImage.setAttribute("src", thisBrowser.extension.getURL("images/signz_random.gif"));
-				newImage.style.height = "27px";
-				newImage.style.width = "54px";
-				newImage.setAttribute("alt", "Random game.");
-				newImage.setAttribute("title", "Go to a random game")
+                value = { lemonamigaTotal: 4700 };
+                chrome.storage.local.set(value);
+            }
+            self.gameCount = value.lemonamigaTotal;
+        });
 
-				link.addEventListener("click", function (event) {
-					event.preventDefault();
-					randomLemon.goToRandomPage();
-				});
+    }
 
-				menuItem.parentElement.appendChild(newMenuItem);
-			}
-		}
-	}
+    addButton() {
+        let navigation = document.querySelector(".top-navigation");
+        if (navigation != null) {
 
-	goToRandomPage() {		
+            //Only add the button if it hasn't already been added.
+            let existingButton = document.getElementById("random");
+            if (!existingButton) {
+                let menuItem = navigation.querySelector("img[src='/images/navigation/signs/links.gif']");
 
-		let generatedId = Math.floor(Math.random() * this.gameCount) + 1;
-		let newUrl = "/games/details.php?id=" + generatedId;
-		document.location.href = newUrl;
-	}
+                if (menuItem != null) {
+                    menuItem = menuItem.closest("td");
+
+                    let newMenuItem = menuItem.cloneNode(true);
+                    newMenuItem.setAttribute("id", "random");
+                    let newImage = newMenuItem.querySelector("img")
+                    let link = newMenuItem.querySelector("a");
+
+                    newImage.setAttribute("src", thisBrowser.extension.getURL("images/signz_random.gif"));
+                    newImage.style.height = "27px";
+                    newImage.style.width = "54px";
+                    newImage.setAttribute("alt", "Random game.");
+                    newImage.setAttribute("title", "Go to a random game")
+
+                    link.addEventListener("click", function(event) {
+                        event.preventDefault();
+                        randomLemon.goToRandomPage();
+                    });
+
+                    menuItem.parentElement.appendChild(newMenuItem);
+                }
+            }
+        }
+    }
+
+    goToRandomPage() {
+
+        let generatedId = Math.floor(Math.random() * this.gameCount) + 1;
+        let newUrl = "/games/details.php?id=" + generatedId;
+        document.location.href = newUrl;
+    }
 }
 
 class RandomC64 {
 
-	constructor() {
-		this.gameCount = 4197;
-	}
+    constructor() {
+        this.gameCount = 4197;
+    }
 
-	addButton() {
+    addButton() {
 
-		let frame = document.querySelector("frame[name='menu']");
-		if (frame != null) {
-			let header = frame.contentDocument.getElementById("hdr");
-			let newButton = document.createElement("img");
+        let frame = document.querySelector("frame[name='menu']");
+        if (frame != null) {
+            let header = frame.contentDocument.getElementById("hdr");
+            let newButton = document.createElement("img");
 
-			let link = document.createElement("a");
-			link.setAttribute("href", "javascript:void(0);");
-			link.addEventListener("click", function (event) {
-				event.preventDefault();
-				randomLemon.goToRandomPage();
-			});
+            let link = document.createElement("a");
+            link.setAttribute("href", "javascript:void(0);");
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                randomLemon.goToRandomPage();
+            });
 
-			newButton.setAttribute("src", thisBrowser.extension.getURL("images/c64_random.gif"));
-			newButton.setAttribute("id", "random");
-			newButton.style.height = "18px";
-			newButton.style.width = "59px";
-			newButton.style.top = "41px";
-			newButton.style.left = "591px";
-			newButton.setAttribute("alt", "Random game.");
-			newButton.setAttribute("title", "Go to a random game")
+            newButton.setAttribute("src", thisBrowser.extension.getURL("images/c64_random.gif"));
+            newButton.setAttribute("id", "random");
+            newButton.style.height = "18px";
+            newButton.style.width = "59px";
+            newButton.style.top = "41px";
+            newButton.style.left = "591px";
+            newButton.setAttribute("alt", "Random game.");
+            newButton.setAttribute("title", "Go to a random game")
 
-			link.appendChild(newButton);
-			header.appendChild(link);
-		}
-	}
+            link.appendChild(newButton);
+            header.appendChild(link);
+        }
+    }
 
-	goToRandomPage() {
-		let maincontent = document.querySelector("[name='content']");
-		let generatedId = Math.floor(Math.random() * this.gameCount) + 1;
-		let newUrl = "https://www.lemon64.com/games/details.php?ID=" + generatedId;
+    goToRandomPage() {
+        let maincontent = document.querySelector("[name='content']");
+        let generatedId = Math.floor(Math.random() * this.gameCount) + 1;
+        let newUrl = "https://www.lemon64.com/games/details.php?ID=" + generatedId;
 
-		maincontent.setAttribute("src", newUrl);
-	}
+        maincontent.setAttribute("src", newUrl);
+    }
 }
