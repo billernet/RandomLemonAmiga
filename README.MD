@@ -7,7 +7,7 @@ This is a chrome extension that places a button in the menu. Clicking the button
 The options screen allows user update of the total number of games when they are added to the websites. This value is used by the random function as a range limiter. This value is stored in the browser's local storage.
 ![Options to support more games.](https://raw.githubusercontent.com/BillerNET/RandomLemonAmiga/master/Images/options.png)
 
-** This extension is not endorsed or created by LemonAmiga.com.** No information is captured by this extension.
+**This extension is not endorsed or created by LemonAmiga.com.** No information is captured by this extension.
 
 ## Versions ##
 
